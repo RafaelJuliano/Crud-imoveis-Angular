@@ -1,0 +1,26 @@
+<form [formGroup]="formUser" (ngSubmit)="onSubmit()">
+    <div>
+        <label for='name'>Nome completo:</label>
+        <input type='text' name='name' id='name' formControlName='name' [(ngModel)]='user.name'>
+    </div>
+
+    <div>
+        <label for='email'>E-mail:</label>
+        <input type='email' name='email' id='email' formControlName='email'>
+    </div>
+    
+    <div>
+        <label for='cpf'>CPF:</label>
+        <input type='text' name='cpf' id='cpf' formControlName='cpf'>
+    </div>
+
+    <div>
+        <label for='pwd'>Senha:</label>
+        <input type='password' name='pwd' id='pwd' formControlName='pwd'>
+        <label for='confirmPwd'>Confirmar senha:</label>
+        <input type='password' name='confirmPwd' id='confirmPwd' formControlName='confirmPwd'>
+        <div *ngIf="!formUser.controls.confirmPwd.valid">must match</div>
+    </div>
+
+    <input type="submit"  value="Gravar">
+</form>

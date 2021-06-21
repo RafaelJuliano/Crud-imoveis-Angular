@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'Crud-imoveis';
+  title = 'CRUD de cadastro de imóveis com Angular 11';
 }

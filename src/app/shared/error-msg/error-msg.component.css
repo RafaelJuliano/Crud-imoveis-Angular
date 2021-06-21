@@ -1,0 +1,26 @@
+.error-bar {
+    display: block;
+    
+    width: 100vw;
+    background-color: rgba(185, 58, 58, 0.4);
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.succes-bar {
+    display: block;
+    
+    width: 100vw;
+    background-color: rgba(74, 185, 111, 0.479);
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+}
+
+@media (max-width: 500px){
+    .error-bar, .succes-bar {
+        position: absolute;
+        top: 12vh
+    }
+}

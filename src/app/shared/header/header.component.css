@@ -1,0 +1,25 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 8vh;
+    background-color: var(--dark-gray);
+    vertical-align: center;
+}
+
+a{
+    color: var(--white);
+    font-family: 'Quicksand', 'open sans';
+    font-size: 2rem;
+}
+
+@media (max-width: 750px) {
+    .header {
+        height: 12vh;
+        padding: 5px;
+    }
+    a{
+        font-size: 1.5rem;
+    }
+}
