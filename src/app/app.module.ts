@@ -11,6 +11,7 @@ import { SignUpComponent } from './pages/sign-up/sign-up.component';
 import { FormTesteComponent } from './teste/form-teste/form-teste.component';
 import { ErrorMsgComponent } from './shared/error-msg/error-msg.component';
 import { LoginComponent } from './pages/login/login.component';
+import { HomeComponent } from './pages/home/home.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './pages/login/login.component';
     SignUpComponent,
     FormTesteComponent,
     ErrorMsgComponent,
-    LoginComponent
+    LoginComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,

@@ -34,7 +34,7 @@ export class SignUpComponent {
           console.log(result);
           this.load = false;
           this.errorMsgComponent.setSuccess('Usuário cadastrado com sucesso');         
-          setTimeout(() =>{this.router.navigateByUrl('/');}, 2500);
+          setTimeout(() =>{this.router.navigateByUrl('/login');}, 2500);
           
          },
         (error) => {

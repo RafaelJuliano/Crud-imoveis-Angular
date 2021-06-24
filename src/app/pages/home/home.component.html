@@ -1,0 +1,11 @@
+<ul *ngFor="let property of properties">
+    <ul>
+        <li>Id: {{property.id}}</li>
+        <li>CEP: {{property.cep}}</li>
+        <li>N°: {{property.number}}</li>
+        <li>Complemento: {{property.complement}}</li>
+        <li>Quartos: {{property.rooms}}</li>
+        <li>Valor: R${{property.price}}</li>
+        <li>Disponível: <span *ngIf="property.available === true">Sim</span><span *ngIf="property.available === false">Não</span></li>
+    </ul>
+</ul>

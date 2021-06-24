@@ -1,4 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
+import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
 import { ErrorMsgComponent } from 'src/app/shared/error-msg/error-msg.component';
@@ -13,14 +14,13 @@ export class LoginComponent implements OnInit {
   public user: LoginUser = {} as LoginUser;
   public load: boolean = false;
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private router: Router) { }
 
   ngOnInit(): void {
+    
   }
 
   onSubmit(): void {
-
-    console.log(this.user)
     this.login(this.user);
   }
 
@@ -28,9 +28,11 @@ export class LoginComponent implements OnInit {
     this.load = true;
     this.userService.login(user)
       .subscribe((result) => {
-        console.log(result);
-        document.cookie = 'token='+result.token;
+        document.cookie = `token=${result.token}`;
+        document.cookie = `id=${result.id}`
+        document.cookie = ` email=${result.email}`
         this.load = false;
+        this.router.navigateByUrl('/')
       }, (error) => {
         if (error.status === 401) {
           this.errorMsgComponent.setError('E-mail ou senha inválidos');
@@ -42,5 +44,4 @@ export class LoginComponent implements OnInit {
       }
       )
   }
-
 }
