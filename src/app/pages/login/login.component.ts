@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { LoginUser } from 'src/app/interfaces/user';
 import { UserService } from 'src/app/services/user.service';
+import { SharedService } from 'src/app/services/shared.service';
 import { ErrorMsgComponent } from 'src/app/shared/error-msg/error-msg.component';
 
 @Component({
@@ -14,23 +15,24 @@ export class LoginComponent implements OnInit {
   public user: LoginUser = {} as LoginUser;
   public load: boolean = false;
 
-  constructor(private userService: UserService, private router: Router) { }
+  constructor(private userService: UserService, private sharedService: SharedService, private router: Router) { }
 
-  ngOnInit(): void {
-    
+  ngOnInit(): void {    
   }
 
   onSubmit(): void {
     this.login(this.user);
   }
 
+  onSingUp(){
+    this.router.navigateByUrl('/cadastro')
+  }
+
   login(user: LoginUser) {
     this.load = true;
     this.userService.login(user)
       .subscribe((result) => {
-        document.cookie = `token=${result.token}`;
-        document.cookie = `id=${result.id}`
-        document.cookie = ` email=${result.email}`
+        this.sharedService.setCookie(result);    
         this.load = false;
         this.router.navigateByUrl('/')
       }, (error) => {

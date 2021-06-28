@@ -1,11 +1,26 @@
-<ul *ngFor="let property of properties">
-    <ul>
-        <li>Id: {{property.id}}</li>
-        <li>CEP: {{property.cep}}</li>
-        <li>N°: {{property.number}}</li>
-        <li>Complemento: {{property.complement}}</li>
-        <li>Quartos: {{property.rooms}}</li>
-        <li>Valor: R${{property.price}}</li>
-        <li>Disponível: <span *ngIf="property.available === true">Sim</span><span *ngIf="property.available === false">Não</span></li>
-    </ul>
-</ul>
+<app-error-msg></app-error-msg>
+<div class="container">
+    <h2>Imóveis Cadastrados</h2>
+    <div class="properties-list">
+        <div *ngFor="let property of properties">
+            <div class="property-container">
+                <ul>
+                    <li>Id: {{property.id}}</li>
+                    <li>CEP: {{property.cep}}</li>
+                    <li>N°: {{property.number}}</li>
+                    <li>Complemento: {{property.complement}}</li>
+                    <li>Quartos: {{property.rooms}}</li>
+                    <li>Valor: R${{property.price}}</li>
+                    <li>Disponível: <span *ngIf="property.available === true">Sim</span><span
+                            *ngIf="property.available === false">Não</span></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="page-bar">
+        <span>Mostrando resultados de {{page+1}} - {{page+9}}</span>
+        <button>&lt;</button>
+        <span>{{page+1}}</span>
+        <button>&gt;</button>
+    </div>
+</div>

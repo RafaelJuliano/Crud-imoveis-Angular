@@ -1,5 +1,6 @@
 .header {
     display: flex;
+    flex-direction: row;
     align-items: center;
     justify-content: center;
     width: 100vw;
@@ -12,6 +13,12 @@ a{
     color: var(--white);
     font-family: 'Quicksand', 'open sans';
     font-size: 2rem;
+}
+
+.logout{
+    margin-left: 10vw;
+    justify-self: end;
+    font-size: 1rem;
 }
 
 @media (max-width: 750px) {

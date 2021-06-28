@@ -1,0 +1,40 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    width: 90vw;
+    background-color: #fff;
+    margin: 5vh auto;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 1px 1px 6px #444;
+}
+
+.properties-list{    
+    display: flex;    
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-around;   
+}
+
+h2 {
+    padding: 25px;
+}
+
+.property-container{
+    padding: 15px;
+    width: 25vw;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: var(--dark-gray);
+    
+}
+
+li{
+    width: 100%;
+    list-style-type: none;
+    color: var(--white);
+    text-align: justify;
+}

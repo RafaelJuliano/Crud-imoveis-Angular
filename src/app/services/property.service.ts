@@ -12,11 +12,10 @@ export class PropertyService {
 
   constructor(private http: HttpClient, private sharedService: SharedService) { }
 
-  getProperties(): Observable<Property[]> {
+  getProperties(page: number = 0, limit: number = 20): Observable<Property[]> {
     const token: string = this.sharedService.getCookie('token');
-    console.log(token);
     const header: HttpHeaders = new HttpHeaders({ "Authorization": "Bearer " + token })
-    const url: string = `${environment.apiUrl}/imoveis`;
+    const url: string = `${environment.apiUrl}/imoveis/?page=${page}&limit=${limit}`;
     return this.http.get<Property[]>(url, {headers: header});
   }
 }
