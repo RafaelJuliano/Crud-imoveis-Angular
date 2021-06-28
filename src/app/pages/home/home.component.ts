@@ -13,6 +13,7 @@ import { ErrorMsgComponent } from 'src/app/shared/error-msg/error-msg.component'
 export class HomeComponent implements AfterViewInit, OnInit {
   @ViewChild(ErrorMsgComponent) errorMsgComponent!: ErrorMsgComponent;
   public load: boolean = false;
+  public propertiesCount!: Number;
   public properties: Property[] = [];
   public page: number = 0;
   private limit: number = 9;
@@ -36,7 +37,8 @@ export class HomeComponent implements AfterViewInit, OnInit {
     this.propertyService.getProperties(this.page, this.limit)
       .subscribe(
         (result) => {
-          this.properties = result;
+          this.propertiesCount = result.count;          
+          this.properties = result.propertiesFound;
         },
         (error) => {
           if (error.status == 401) {

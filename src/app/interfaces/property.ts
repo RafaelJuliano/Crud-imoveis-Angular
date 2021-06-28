@@ -7,3 +7,8 @@ export interface Property {
 	rooms: number,
 	available: boolean
 }
+
+export interface PropertyList {
+	count: Number,
+	propertiesFound: Property[]
+}
