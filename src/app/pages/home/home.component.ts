@@ -16,7 +16,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
   public propertiesCount!: Number;
   public properties: Property[] = [];
   public page: number = 0;
-  private limit: number = 9;
+  private limit: number = 12;
 
   constructor(private propertyService: PropertyService, private sharedService: SharedService, private router: Router) { }
 

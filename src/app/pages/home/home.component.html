@@ -5,14 +5,14 @@
         <div *ngFor="let property of properties">
             <div class="property-container">
                 <ul>
-                    <li>Id: {{property.id}}</li>
-                    <li>CEP: {{property.cep}}</li>
-                    <li>N°: {{property.number}}</li>
-                    <li>Complemento: {{property.complement}}</li>
-                    <li>Quartos: {{property.rooms}}</li>
-                    <li>Valor: R${{property.price}}</li>
-                    <li>Disponível: <span *ngIf="property.available === true">Sim</span><span
-                            *ngIf="property.available === false">Não</span></li>
+                    <li>Id: <span class="item-value first">{{property.id}}</span></li>
+                    <li>CEP: <span class="item-value">{{property.cep}}</span></li>
+                    <li>N°: <span class="item-value">{{property.number}}</span></li>
+                    <li>Complemento: <span class="item-value">{{property.complement}}</span></li>
+                    <li>Quartos: <span class="item-value">{{property.rooms}}</span></li>
+                    <li>Valor: <span class="item-value">R${{property.price}}</span></li>
+                    <li>Disponível: <span class="item-value last" *ngIf="property.available === true">Sim</span><span
+                            class="item-value last" *ngIf="property.available === false">Não</span></li>
                 </ul>
             </div>
         </div>

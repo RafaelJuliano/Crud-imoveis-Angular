@@ -3,12 +3,9 @@
     flex-direction: column;
     align-items: center;
     justify-content: space-between;
-    width: 90vw;
-    background-color: #fff;
-    margin: 5vh auto;
+    width: 100vw;
+    background-color: var(--white);   
     padding: 15px;
-    border-radius: 8px;
-    box-shadow: 1px 1px 6px #444;
 }
 
 .properties-list{    
@@ -25,7 +22,7 @@ h2 {
 
 .property-container{
     padding: 15px;
-    width: 25vw;
+    width: 20vw;
     margin: 5px;
     border-radius: 5px;
     background-color: var(--dark-gray);
@@ -33,8 +30,29 @@ h2 {
 }
 
 li{
+    display: flex;
+    flex-direction: row;
     width: 100%;
     list-style-type: none;
     color: var(--white);
-    text-align: justify;
+    justify-content: space-between;
+}
+
+span.item-value {
+    display: flex;
+    background-color: rgb(110, 109, 109);
+    color: var(--white);
+    font-weight: normal;
+    width: 45%;
+    padding-left: 2%;
+}
+
+span.first{
+    padding-top: 5px;
+    border-radius: 5px 5px 0 0 ;
+}
+
+span.last {
+    border-radius: 0 0 5px 5px;
+    padding-bottom: 5px;
 }
