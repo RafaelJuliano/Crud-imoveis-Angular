@@ -13,16 +13,17 @@ import { ErrorMsgComponent } from 'src/app/shared/error-msg/error-msg.component'
 export class HomeComponent implements AfterViewInit, OnInit {
   @ViewChild(ErrorMsgComponent) errorMsgComponent!: ErrorMsgComponent;
   public load: boolean = false;
-  public propertiesCount!: Number;
+  public propertiesCount!: number;
   public properties: Property[] = [];
   public page: number = 0;
-  private limit: number = 12;
+  public limit: number = 12;
+  public pageCount!: number;
 
   constructor(private propertyService: PropertyService, private sharedService: SharedService, private router: Router) { }
 
   ngOnInit(): void {
     const token = this.sharedService.getCookie("token");
-    if (token.length !== 191){
+    if (token.length !== 191) {
       this.router.navigateByUrl('/login')
     }
   }
@@ -37,7 +38,8 @@ export class HomeComponent implements AfterViewInit, OnInit {
     this.propertyService.getProperties(this.page, this.limit)
       .subscribe(
         (result) => {
-          this.propertiesCount = result.count;          
+          this.propertiesCount = result.count;
+          this.pageCount = ((this.propertiesCount / this.limit) | 0)+1;          
           this.properties = result.propertiesFound;
         },
         (error) => {
@@ -54,4 +56,19 @@ export class HomeComponent implements AfterViewInit, OnInit {
         }
       );
   }
+
+  back() {
+    if (this.page > 0) {
+      this.page -= 1;
+      this.getProperties();
+    }
+  }
+
+  next() {
+    if (this.page < this.pageCount-1) {
+      this.page += 1;
+      this.getProperties();
+    }
+  }
+
 }

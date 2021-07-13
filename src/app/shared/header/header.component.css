@@ -13,6 +13,7 @@ a{
     color: var(--white);
     font-family: 'Quicksand', 'open sans';
     font-size: 2rem;
+    text-align: center;
 }
 
 .logout{
@@ -28,5 +29,8 @@ a{
     }
     a{
         font-size: 1.5rem;
+    }
+    .logout {
+        margin-left: 5vw;
     }
 }

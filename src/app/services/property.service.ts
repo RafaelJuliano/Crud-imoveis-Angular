@@ -18,4 +18,12 @@ export class PropertyService {
     const url: string = `${environment.apiUrl}/imoveis/?page=${page}&limit=${limit}`;
     return this.http.get<PropertyList>(url, {headers: header});
   }
+
+  addProperty(property: Property): Observable<Property> {
+    const token: string = this.sharedService.getCookie('token');
+    const header: HttpHeaders = new HttpHeaders({ "Authorization": "Bearer " + token });
+    const url: string = `${environment.apiUrl}/imoveis`;
+    return this.http.post<Property>(url, property,{headers: header});
+  }
+
 }

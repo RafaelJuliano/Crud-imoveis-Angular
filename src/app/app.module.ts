@@ -12,6 +12,8 @@ import { FormTesteComponent } from './teste/form-teste/form-teste.component';
 import { ErrorMsgComponent } from './shared/error-msg/error-msg.component';
 import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
+import { PropertyFormComponent } from './shared/property-form/property-form.component';
+import { CreatePropertyComponent } from './pages/create-property/create-property.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { HomeComponent } from './pages/home/home.component';
     FormTesteComponent,
     ErrorMsgComponent,
     LoginComponent,
-    HomeComponent
+    HomeComponent,
+    PropertyFormComponent,
+    CreatePropertyComponent
   ],
   imports: [
     BrowserModule,

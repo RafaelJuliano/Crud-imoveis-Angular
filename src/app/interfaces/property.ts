@@ -9,6 +9,6 @@ export interface Property {
 }
 
 export interface PropertyList {
-	count: Number,
+	count: number,
 	propertiesFound: Property[]
 }

@@ -30,8 +30,7 @@ export class SignUpComponent {
     this.load = true;
     this.userService.addNewUser(user)
       .subscribe(
-        (result) => { 
-          console.log(result);
+        (result) => {           
           this.load = false;
           this.errorMsgComponent.setSuccess('Usuário cadastrado com sucesso');         
           setTimeout(() =>{this.router.navigateByUrl('/login');}, 2500);

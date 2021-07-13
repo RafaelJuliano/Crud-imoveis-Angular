@@ -1,0 +1,50 @@
+<div class='container'>
+    <h2>{{title}}</h2>
+    <form (ngSubmit)="onSubmit()" #f="ngForm" class='form'>
+        <!-- ID-->
+        <div *ngIf="isANewProperty === false" class='item-container'>
+            <input class='input' type='text' id="id" name="id" [(ngModel)]="property.id" disabled #id="ngModel" placeholder="ID">
+        </div>
+        <!-- CEP -->
+        <div class='item-container'>
+            <input class='input' type='text' id="cep" name="cep" [(ngModel)]="property.cep" required #cep="ngModel"
+                pattern="^\d{5}\-\d{3}$" maxlength="9" [class.is-invalid]="!cep.valid && cep.touched" placeholder="CEP">
+            <div class='item-error' *ngIf="!cep.valid && cep.touched">
+                CEP é obrigatório
+            </div>
+        </div>
+        <!-- NUMERO -->
+        <div class='item-container'>
+            <input class='input' type='number' id="number" name="number" [(ngModel)]="property.number" placeholder="Número"/>
+        </div>
+
+        <!--COMPLEMENTO-->
+        <div class='item-container'>
+            <input class='input' type='text' id="complement" name="text" [(ngModel)]="property.complement"
+                #complement="ngModel" placeholder="Complemento">
+        </div>
+
+        <!-- QUARTOS -->
+        <div class='item-container'>
+            <input class='input' type='number' id="rooms" name="rooms" [(ngModel)]="property.rooms" placeholder="Quartos"/>
+        </div>
+
+        <!--PREÇO-->
+        <div class='item-container'>
+            <input class='input' type='number' id="price" name="price" [(ngModel)]="property.price"
+                required #price="ngModel"
+                [class.is-invalid]="!price.valid && price.touched"
+                placeholder="Valor">
+            <div class='item-error' *ngIf="!price.valid && price.touched">
+                Deve conter um valor
+            </div>
+        </div>
+
+        <div class='button-container'>
+            <button class='submit' type="submit"
+                [disabled]="!f.valid || f.value.confirmPwd !== f.value.pwd">Gravar</button>
+                <button *ngIf="isANewProperty === false" class='delete' type="button">Deletar</button>
+            <button routerLink='/' class='cancel' type="button">Voltar</button>
+        </div>
+    </form>
+</div>
