@@ -43,7 +43,7 @@
         <div class='button-container'>
             <button class='submit' type="submit"
                 [disabled]="!f.valid || f.value.confirmPwd !== f.value.pwd">Gravar</button>
-                <button *ngIf="isANewProperty === false" class='delete' type="button">Deletar</button>
+                <button *ngIf="isANewProperty === false" class='delete' type="button" (click)="emitDeleteProperty()">Deletar</button>
             <button routerLink='/' class='cancel' type="button">Voltar</button>
         </div>
     </form>

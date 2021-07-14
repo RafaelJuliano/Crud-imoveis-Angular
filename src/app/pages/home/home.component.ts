@@ -39,7 +39,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
       .subscribe(
         (result) => {
           this.propertiesCount = result.count;
-          this.pageCount = ((this.propertiesCount / this.limit) | 0)+1;          
+          this.pageCount = ((this.propertiesCount / this.limit) | 0) + 1;
           this.properties = result.propertiesFound;
         },
         (error) => {
@@ -65,10 +65,13 @@ export class HomeComponent implements AfterViewInit, OnInit {
   }
 
   next() {
-    if (this.page < this.pageCount-1) {
+    if (this.page < this.pageCount - 1) {
       this.page += 1;
       this.getProperties();
     }
   }
 
+  selectProperty(id: number) {    
+    this.router.navigateByUrl(`/editar/${id}`);
+  }
 }

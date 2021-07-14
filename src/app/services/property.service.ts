@@ -12,6 +12,13 @@ export class PropertyService {
 
   constructor(private http: HttpClient, private sharedService: SharedService) { }
 
+  getProperty(id: number): Observable<Property>{
+    const token: string = this.sharedService.getCookie('token');
+    const header: HttpHeaders = new HttpHeaders({ "Authorization": "Bearer " + token })
+    const url: string = `${environment.apiUrl}/imoveis/${id}`;
+    return this.http.get<Property>(url, {headers: header});
+  }
+
   getProperties(page: number = 0, limit: number = 20): Observable<PropertyList> {
     const token: string = this.sharedService.getCookie('token');
     const header: HttpHeaders = new HttpHeaders({ "Authorization": "Bearer " + token })
@@ -26,4 +33,17 @@ export class PropertyService {
     return this.http.post<Property>(url, property,{headers: header});
   }
 
+  updateProperty(property: Property): Observable<Property>{
+    const token: string = this.sharedService.getCookie('token');
+    const header: HttpHeaders = new HttpHeaders({ "Authorization": "Bearer " + token });
+    const url: string = `${environment.apiUrl}/imoveis/${property.id}`;
+    return this.http.patch<Property>(url, property,{headers: header});
+  }
+
+  deleteProperty(id: number): Observable<Property>{
+    const token: string = this.sharedService.getCookie('token');
+    const header: HttpHeaders = new HttpHeaders({ "Authorization": "Bearer " + token });
+    const url: string = `${environment.apiUrl}/imoveis/${id}`;
+    return this.http.delete<Property>(url, {headers: header});
+  }
 }

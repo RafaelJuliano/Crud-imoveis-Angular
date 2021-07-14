@@ -11,8 +11,13 @@ export class PropertyFormComponent {
   @Input() title!: string;
   @Input() isANewProperty: boolean = false;
   @Output() outputProperty: EventEmitter<Property> = new EventEmitter();
+  @Output() deleteProperty: EventEmitter<Boolean> = new EventEmitter();
 
   onSubmit(): void {
     this.outputProperty.emit(this.property);
+  }
+
+  emitDeleteProperty(){
+    this.deleteProperty.emit()
   }
 }

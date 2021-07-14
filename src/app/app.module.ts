@@ -14,6 +14,7 @@ import { LoginComponent } from './pages/login/login.component';
 import { HomeComponent } from './pages/home/home.component';
 import { PropertyFormComponent } from './shared/property-form/property-form.component';
 import { CreatePropertyComponent } from './pages/create-property/create-property.component';
+import { UpdatePropertyComponent } from './pages/update-property/update-property.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { CreatePropertyComponent } from './pages/create-property/create-property
     LoginComponent,
     HomeComponent,
     PropertyFormComponent,
-    CreatePropertyComponent
+    CreatePropertyComponent,
+    UpdatePropertyComponent
   ],
   imports: [
     BrowserModule,

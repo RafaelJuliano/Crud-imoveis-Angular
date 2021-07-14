@@ -6,15 +6,15 @@
         <p class="result-description">Foram encontrados {{propertiesCount}} resultados</p>
 
         <div class="page-navigator">
-            <button class="back" (click)="back()">&lt;</button>            
-                <span class="page-number">Página {{page+1}} de {{pageCount}}</span>            
+            <button class="back" (click)="back()">&lt;</button>
+            <span class="page-number">Página {{page+1}} de {{pageCount}}</span>
             <button class="next" (click)="next()">&gt;</button>
-        </div>        
+        </div>
     </div>
-    
+
     <div class="properties-list">
         <div *ngFor="let property of properties">
-            <div class="property-container">
+            <div class="property-container" (click)="selectProperty(property.id)">
                 <div class='item-name'>
                     <ul>
                         <li>Id: </li>
@@ -41,5 +41,5 @@
             </div>
         </div>
     </div>
-    
+
 </div>
