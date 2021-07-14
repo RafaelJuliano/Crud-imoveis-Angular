@@ -23,7 +23,7 @@ export class HomeComponent implements AfterViewInit, OnInit {
 
   ngOnInit(): void {
     const token = this.sharedService.getCookie("token");
-    if (token.length !== 191) {
+    if (token.length < 100) {
       this.router.navigateByUrl('/login')
     }
   }
